@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<div class="ajoSer_conteneur">
+		<div>
+			<div style="float: right; margin-bottom: 10px;" (tap)="modifierInformations()" *ngIf="etatModifier == false">
+				<img src="assets/images/icones/crayon2.jpg">
+			</div>
+			<h4 class="profil_titre1">Informations Personnelles</h4>
+		</div>
+
+		<ion-list no-border *ngIf="etatModifier == false">
+			<ion-item>
+		    	Prenom <ion-note item-end>{{prenom}}</ion-note>
+		    </ion-item>
+		    <ion-item>
+		    	Nom <ion-note item-end>{{nom}}</ion-note>
+		    </ion-item>
+		    <ion-item>
+		    	Date Naissance <ion-note item-end>{{dateNaisDMY}}</ion-note>
+		    </ion-item>
+		    
+		</ion-list>
+		
+		<ion-list no-border *ngIf="etatModifier == true">
+			<ion-item>
+		    	<ion-label class="profil_infoPerso_label">Prénom *</ion-label> <ion-input class="profil_input_right" type="text" [(ngModel)]="newPrenom" ></ion-input>
+		    </ion-item>
+		    <ion-item>
+		    	<ion-label class="profil_infoPerso_label">Nom *</ion-label> <ion-input class="profil_input_right" type="text"  [(ngModel)]="newNom" ></ion-input>
+		    </ion-item>
+		    <ion-item>
+		    	<ion-label class="profil_infoPerso_label">Date Naissance *</ion-label> <ion-datetime displayFormat="DD.MM.YYYY" min="1930" max="{{dateMax}}" [(ngModel)]="newDateNaisDT"></ion-datetime>
+		    </ion-item>
+		    <div style="text-align: center;">
+		    	<button ion-button (tap)="annulerModification()">annuler</button>
+		    	<button ion-button (tap)="enregistrerUtilisateur()">enregistrer</button>
+		    </div>
+		    
+		</ion-list>
+		
+		<div>
+			<button ion-button icon-only style="float:right; margin-bottom: 15px;" (tap)="afficherMensurations()"><ion-icon name="md-eye"></ion-icon></button>
+			<h4 class="profil_titre2">Dernières Mensurations</h4> 
+		</div>
+		<ion-list no-border>
+			<ion-item *ngFor="let m of mensurations">
+		    	{{m.nom}} <span class="profil_tailleDateModif">{{m.date}}</span><ion-note item-end>{{m.mesure}} {{m.unite}}</ion-note><ion-note item-starts></ion-note>
+		    </ion-item>
+
+		</ion-list>
+
+	</div>
+
+</ion-content>

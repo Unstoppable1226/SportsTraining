@@ -1,0 +1,79 @@
+detailsExercicePage {
+
+}
+
+.ajoExe_conteneur {
+	background: #C5EFF7;
+	padding: 10px;
+	float: left;
+	width: 100%;
+}
+.ajoExe_titre {
+	font-size: 25px;
+	font-weight: bold;
+	padding: 0px 15px 15px 0px;
+}
+.ajoExe_conteneurImages {
+	text-align : center;
+}
+.ejoExe_image {
+	margin-left : 20px;
+}
+.ajoExe_conteneurTitreListeSerie {
+	float: left;
+	width: 100%;
+	margin: 10px 0px 0px 0px;
+}
+.ajoExe_TitreSerie {
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.ajoExe_ajouterSerie {
+	float: right;
+}
+.ajoExe_ConteneurSerie {
+	float: left;
+	width: 100%;
+	background: #C5EFF7;
+	padding: 10px 0px 0px 0px;
+}
+.ajoExe_contenuSerie {
+	background: white;
+	float: left;
+	width: 100%;
+	padding: 5px 10px 5px 10px;
+}
+.ajoExe_serie {
+	float: left;
+	margin: 12px 0px 12px 0px;
+	font-size: 16px;
+	font-weight: bold;
+	width: 82%;
+}
+.ajoExe_button {
+	width: 18%;
+	float: right;
+}
+.ajoExe_buttonModifier {
+	margin: 5px 10px 0px 0px;
+	
+	height: 35px;
+	width: 35px;
+	float: right;
+}
+.ajoExe_buttonModifier img {
+	background: white;
+	height: 34px;
+	width: 34px;
+
+	padding: 1px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.ajoExe_buttonSupprimer {
+	padding: 0px 0px 0px 0px;
+	float: right;
+}
+
+/*src=*/

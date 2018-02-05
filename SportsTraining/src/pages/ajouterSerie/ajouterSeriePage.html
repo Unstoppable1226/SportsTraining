@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ajouter une série</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<div class="ajoSer_conteneur">
+		<div *ngIf="type == 0">
+			<div class="ajoSer_nbSerie">
+				<div class="ajoSer_texte">
+					Minutes
+					<input type="number" class="ajoSer_input_cardio" value="{{tempsMin}}" [(ngModel)]="tempsMin">
+				</div>
+				<div class="ajoSer_boutons">
+					<button ion-button (tap)="incTempsMin()" style="float: right;">+</button>
+					<button ion-button (tap)="decTempsMin()" style="float: right;">-</button>
+				</div>
+			</div>
+			<div class="ajoSer_nbSerie">
+				<div class="ajoSer_texte">
+					Secondes 
+					<input type="number" class="ajoSer_input_cardio" value="{{tempsSec}}" [(ngModel)]="tempsSec">
+				</div>
+				<div class="ajoSer_boutons">
+					<button ion-button (tap)="incTempsSec()" style="float: right;">+</button>
+					<button ion-button (tap)="decTempsSec()" style="float: right;">-</button>
+				</div>
+			</div>
+			<div class="ajoSer_nbSerie">
+				<div class="ajoSer_texte">
+					Distances (km) 
+					<input type="text" class="ajoSer_input_cardio" value="{{distance}}" [(ngModel)]="distance">
+				</div>
+				<div class="ajoSer_boutons">
+					<button ion-button (tap)="incDistance()" style="float: right;">+</button>
+					<button ion-button (tap)="decDistance()" style="float: right;">-</button>
+				</div>
+			</div>
+			<div class="ajoSer_nbSerie">
+				<div class="ajoSer_texte">
+					Dépenses (kcal) 
+					<input type="number" class="ajoSer_input_cardio" value="{{depense}}" [(ngModel)]="depense">
+				</div>
+				<div class="ajoSer_boutons">
+					<button ion-button (tap)="incDepense()" style="float: right;">+</button>
+					<button ion-button (tap)="decDepense()" style="float: right;">-</button>
+				</div>
+			</div>
+			<div class="ajoSer_nbSerie">
+				<div class="ajoSer_texte">
+					Pause (sec) 
+					<input type="number" class="ajoSer_input_cardio" value="{{pause}}" [(ngModel)]="pause">
+				</div>
+				<div class="ajoSer_boutons">
+					<button ion-button (tap)="incPause()" style="float: right;">+</button>
+					<button ion-button (tap)="decPause()" style="float: right;">-</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- 
+			Div pour l'interface de création d'une série CARDIO
+		-->
+		<div *ngIf="type == 1">
+			<div class="ajoSer_nbSerie">
+				<div class="ajoSer_texte">
+					Nombre de série : {{nbSerie}}
+				</div>
+				<div class="ajoSer_boutons">
+					<button ion-button (tap)="incNbSerie()" style="float: right;">+</button>
+					<button ion-button (tap)="decNbSerie()" style="float: right;">-</button>
+				</div>
+			</div>
+			<div class="ajoSer_nbSerie">
+				<div class="ajoSer_texte">
+					Nombre de répétition :  {{nbRep}}
+				</div>
+				<div class="ajoSer_boutons">
+					<button ion-button (tap)="incNbRep()" style="float: right;">+</button>
+					<button ion-button (tap)="decNbRep()" style="float: right;">-</button>
+				</div>
+			</div>
+			<div class="ajoSer_nbSerie">
+				<div class="ajoSer_texteInput">
+					Poids (kg) 
+					<input type="number" class="ajoSer_input" value="{{poids}}" [(ngModel)]="poids">
+					<button ion-button color="secondary"  class="ajoSer_boutonUneDemi" (tap)="ajouterUneDemi()" [hidden]="clear == false">+ 0.5</button>
+					<button ion-button small color="light" class="ajoSer_boutonUneDemi" (tap)="ajouterUneDemi()" [hidden]="clear == true">+ 0</button>
+				</div>
+				<div class="ajoSer_boutons">
+					<button ion-button (tap)="incPoids()" style="float: right;">+</button>
+					<button ion-button (tap)="decPoids()" style="float: right;">-</button>
+				</div>
+			</div>
+			<div class="ajoSer_nbSerie">
+				<div class="ajoSer_texte">
+					Pause (sec) 
+					<input type="number" class="ajoSer_input_cardio" value="{{pause}}" [(ngModel)]="pause">
+				</div>
+				<div class="ajoSer_boutons">
+					<button ion-button (tap)="incPause()" style="float: right;">+</button>
+					<button ion-button (tap)="decPause()" style="float: right;">-</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="ajoSer_boutonAjouter" (tap)="ajouterSerie()">
+			<button ion-button>Ajouter cette série</button>
+		</div>
+		<div class="ajoSer_boutonAjouter" (tap)="ajouterSerie()">
+			<span style="color:red;">{{msgError}}</span>
+		</div>
+		
+	</div>
+
+</ion-content>

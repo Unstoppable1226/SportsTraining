@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Détails {{titre}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="ent_conteneur" style="width: 100%; margin-left: 0px; margin-top: 0px;">
+
+    <div *ngFor="let exe of exercices">
+
+      <div style="float:left; width: 100%;">
+        <div style="width: 70%; float:left; margin-top: 0px;"><h2>{{exe.exe.nom}}</h2></div>
+        <div style="float:left; margin-top: -10px; margin-bottom: 20px; width: 29%;">
+          <div style="float: left; margin-top: 5px;">
+            <img src="assets/images/icones/crayon2.jpg" width="36px" height="36px" (tap)="modifierExercice()">
+          </div>
+          <div style="float: right;">
+            <button ion-button color="danger" (tap)="supprimerExercice()">-</button>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align: center;">
+        <img src="assets/images/exercices/{{exe.exe.image}}.jpg" width="200px" height="200px" />
+      </p>
+      <p>Type d'exercice : {{exe.exe.type == 1 ? "Musculation" : "Cardiovasculaire"}}</p>
+      <p>{{exe.exe.description}}</p>
+      <p>Muscle travaillé lors de l'exercice : {{exe.muscle.nom}}</p>
+    </div>
+
+    <div *ngFor="let mus of muscles">
+      <h2>{{mus.muscle.nom}}</h2>
+      <p style="text-align: center;">
+        <img src="assets/images/muscles/{{mus.muscle.image}}" width="200px" height="185px" />
+      </p>
+      <h4>Listes des exercices</h4>
+      <ion-list inset >
+        <button ion-item *ngFor="let exe of mus.exercices" (tap)="afficherDetailsExercice(exe.id)">{{ exe.nom }} </button>
+      </ion-list>
+     
+    </div>
+  </div>
+
+</ion-content>

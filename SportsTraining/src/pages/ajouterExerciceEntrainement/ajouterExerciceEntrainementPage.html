@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ajouter un exercice</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<div class="ajoSer_conteneur">
+
+		<div class="det_ent_conteneurExercices">
+		    <span class="ent_titreListe">Liste des exercices</span>
+		    <button ion-button class="ent_ajouter" (tap)="AfficherCreerExercice()">+</button>
+	  	</div>
+
+		<div class="det_ent_conteneurExercices">
+		   <ion-list> 
+		      <div *ngFor="let exe of exercices; let indice = index">
+		        <ion-item>
+		          <ion-thumbnail item-start>
+		          	<img src="assets/images/exercices/{{exe.image}}.jpg">
+		          </ion-thumbnail>
+		          <h2></h2>
+		          <span class="det_ent_supprimerExe"><button ion-button class="aEE_boutonAjouter" (tap)="ajouterExercice(exe.id)">+</button></span>
+	              <div class="det_ent_titreExercice" style="margin-top:5px;">{{exe.nom}}</div>
+		        </ion-item>
+	       	  </div>
+			</ion-list>
+	  	</div>
+
+	</div>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Modification d'un entrainement</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<div class="ajoSer_conteneur">
+		<ion-item>
+	    	<ion-label fixed color="primary">Nom *</ion-label>
+	    	<ion-input type="text" class="ajoEnt_input" ngClass [(ngModel)]="nom" ></ion-input>
+	    </ion-item>
+	    <ion-item>
+	    	<ion-label fixed color="primary">Date *</ion-label>
+	    	<ion-datetime displayFormat="DD.MM.YYYY" min="2015" max="{{dateMax}}"  [(ngModel)]="date"></ion-datetime>
+	    </ion-item>
+	    <ion-item>
+	    	<ion-label fixed color="primary">Durée (min) *</ion-label>
+	    	<ion-input type="number" class="ajoEnt_input" [(ngModel)]="duree"></ion-input>
+	    </ion-item>
+	    <ion-item>
+	    	<ion-label fixed color="primary">Appréciation *</ion-label>
+			<ion-select [(ngModel)]="appreciation">
+		        <ion-option *ngFor="let app of appreciations" [value]="app.id" >{{app.nom}}</ion-option>
+		      </ion-select>
+	    </ion-item>
+	    <div class="ajoSer_boutonAjouter">
+	    	<button ion-button (tap)="annuler()">Annuler</button>
+	    	<button ion-button (tap)="modifierEntrainement()">Enregistrer</button>
+	    </div>
+	    <div class="ajoSer_boutonAjouter">
+	    	<p style="color:red;" [hidden]="nomError.length == 0">{{nomError}}</p>
+	    	<p style="color:red;" [hidden]="dureeError.length == 0">{{dureeError}}</p>
+	    </div>
+	</div>
+</ion-content>

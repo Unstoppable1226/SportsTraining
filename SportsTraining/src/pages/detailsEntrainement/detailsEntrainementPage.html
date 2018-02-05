@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Détail d'un entrainement</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+	<div class="det_ent_conteneurTitre" *ngFor="let ent of entrainement">
+		<h2 class="detEnt_titreEnt">
+			<span style="" class="detEnt_titre">{{ent.nom}}</span>
+			<button ion-button style="float:right" color="danger" (tap)="supprimerEntrainement(ent.id)">-</button>
+			<div class="ajoExe_buttonModifier" (tap)="afficherModifierEntrainement(ent.id)">
+				<img src="assets/images/icones/crayon2.jpg">
+			</div>
+		</h2>
+		<div class="detEnt_infoEnt">
+		  	<div class="det_ent_image"><img src="assets/images/autres/muscle_default.jpg" width="50px"></div>
+		  	<div class="det_ent_info">
+		  		<div class="detEnt_infoDetails">Date : {{ent.date}}</div>
+		  		<div class="detEnt_infoDetails">Durée  : ~ {{ent.duree}} minutes</div>
+		  		<div class="detEnt_infoDetails">Appréciation : {{ent.appreciation.nom}}</div>
+		  	</div>
+	  	</div>
+	</div>
+
+	<div class="det_ent_conteneurExercices">
+	    <span class="ent_titreListe">Liste des exercices</span>
+	    <button ion-button class="ent_ajouter" (tap)="afficherAjouterExerciceEntrainement()">+</button>
+  	</div>
+
+  	<div class="det_ent_conteneurExercices">
+	   <ion-list> 
+	      <div *ngFor="let exe of exercices">
+	        <ion-item>
+	          <ion-thumbnail item-start>
+	          	<img src="assets/images/exercices/{{exe.image}}.jpg" (tap)="afficherdetailsExercice(exe.id)">
+	          </ion-thumbnail>
+	          <h2></h2>
+	          <span class="det_ent_supprimerExe"><button ion-button class="det_ent_buttonSupp" (tap)="supprimerExerciceDeEntrainement(exe.id)">-</button></span>
+              <div class="det_ent_titreExercice">{{exe.nom}}</div>
+	        </ion-item>
+       	  </div>
+		</ion-list>
+  	</div>
+
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Entrainements</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="ent_conteneur" style="width: 100%; margin-left: 0px; margin-top: 0px">
+    <!--<div class="ent_calendar">
+      <img src="assets/images/autres/calendar-exemple.png" size="100%">
+    </div>-->
+
+    <div class="ent_conteneurTitre" style="width: 100%;">
+      <span class="ent_titreListe">Liste des entrainements</span>
+      <button ion-button class="ent_ajouter" (tap)="afficherAjouterEnt()">+</button>
+    </div>
+
+    <ion-list>
+      <div *ngFor="let ent of entrainements; let i = index">
+        
+        <ion-item (tap)="afficherDetailsEnt(ent.id)">
+          <ion-thumbnail item-start>
+            <ion-icon item-start class="ent_icone" name="ios-paper"></ion-icon>
+          </ion-thumbnail>
+          <h2>{{ent.nom}}</h2>
+          <p>
+            <span>{{ent.date}}</span>
+            <span class="ent_duree">{{ent.duree}} min</span>
+          </p>
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

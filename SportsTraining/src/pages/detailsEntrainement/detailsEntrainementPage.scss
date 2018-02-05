@@ -1,0 +1,78 @@
+detailsEntrainementPage {
+
+}
+
+.det_ent_conteneurTitre {
+	background: #C5EFF7;
+	width: 100%;
+	padding: 10px;
+}
+.detEnt_titreEnt {
+	font-size: 25px;
+	font-weight: bold;
+}
+.detEnt_infoEnt {
+	float: left;
+	margin-top: 10px;
+}
+.det_ent_listeExercices {
+	
+}
+.detEnt_infoDetails {
+	margin-bottom: 12px;
+}
+.det_ent_image {
+	float: left;
+	padding-left: 20px;
+}
+
+.det_ent_info {
+	float: left;
+	padding-left: 20px;
+}
+.det_ent_conteneurTitre {
+	float: left;
+}
+.det_ent_conteneurExercices {
+	float: left;
+	padding: 0px 10px 10px 10px;
+	width: 100%;
+	background: #C5EFF7;
+}
+
+.det_ent_detailSeries {
+	width: 75%;
+	float: left;
+
+}
+
+.det_ent_titreExercice {
+	float: left;
+	width: 75%;
+	font-weight: bold;
+	margin-bottom: 10px;
+	margin-top: 15px;
+	font-size: 20px;
+	display: inline-block!important;
+	word-wrap: break-word!important; /* mets à la ligne quand sa dépasse*/
+	white-space: pre-wrap;
+}
+
+.det_ent_supprimerExe {
+	margin-top: 10px;
+	float: right;
+	width: 25%;
+	text-align: center;
+	height: 39px;
+}
+
+.det_ent_buttonSupp {
+	width: 35px;
+	height: 35px!important;
+	font-weight: bold!important;
+	background: #EF340F; 
+}
+.detEnt_titre {
+	margin-top: 15px;
+	display: inline-block;
+}

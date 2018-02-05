@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Détails de l'exercice</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+	<div class="ajoExe_conteneur">
+		<div class="ajoExe_titre">{{exercice.nom}}</div>
+		<div class="ajoExe_conteneurImages">
+			<img src="assets/images/exercices/{{exercice.image}}.jpg" width="140" height="120px" class="ejoExe_image">
+		</div>
+		<div class="ajoExe_conteneurTitreListeSerie">
+			<div class="ajoExe_TitreSerie">Liste des séries</div>
+			<div class="ajoExe_ajouterSerie"><button ion-button (tap)="afficherAjouterSerie()">+</button></div>
+		</div>
+		<div  *ngFor=" let ser of series; let indice = index " class="ajoExe_ConteneurSerie">
+			<div class="ajoExe_contenuSerie">
+				<div class="ajoExe_serie" *ngIf="ser.type == 1">
+					{{ser.nombre + "x" + ser.repetition + " à " + ser.poids + "kg, Pause de " + ser.pause + "sec"}}
+				</div>
+				<div class="ajoExe_serie" *ngIf="ser.type == 0">
+					{{ser.tempsMin + " min " + ser.tempsSec + " sec, " + ser.distance + " km, " + ser.depense + " kcal et " + ser.pause + " sec de pause"}}
+				</div>
+				<div class="ajoExe_button" style="margin-top : 5px;">
+					<div class="ajoExe_buttonSupprimer">
+						<button ion-button class="det_ent_buttonSupp" (tap)="supprimerSerie(ser.id)">-</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>

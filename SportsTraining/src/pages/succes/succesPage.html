@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Succès</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="ajoExe_conteneur">
+    
+    <h2>Expérience : <span> {{experienceUti}} xp</span></h2>
+
+    <h3>Succès Débloqués</h3>
+
+    <div class="succes_div_item" *ngFor="let suc of succesUtilisateur">
+      <img src="assets/images/succes/{{suc.image}}" width="80px" height="80px" />
+      <label>{{suc.nom}}</label>
+    </div>
+	
+  </div>
+
+</ion-content>

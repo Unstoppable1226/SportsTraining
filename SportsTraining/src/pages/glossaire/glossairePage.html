@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Glossaire</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="padding-bottom: 0px;">
+
+  <div *ngIf="listeState">
+  
+    <div class="hom_conteneur">
+      <div (tap)="afficherExercices()"  class="home_div">
+        <div class="hom_image"> <ion-icon name="md-walk" item-start></ion-icon></div>
+        <div class="hom_titre">Exercices</div>  
+      </div>
+    </div>
+
+    <div class="hom_conteneur">
+      <div (tap)="afficherMuscles()" *ngIf="listeState" class="home_div">
+        <div class="hom_image"> <ion-icon name="md-walk" item-start></ion-icon></div>
+        <div class="hom_titre">Muscles</div>  
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ajoExe_conteneur" *ngIf="listeState == false">
+      
+      <div *ngIf="exercicesState" style="float: left; width: 100%">
+        <h2>Liste des exercices</h2>
+        <div style="text-align: center;margin-bottom: 20px;">
+          <div style="width:50%; float: left;"><button ion-button full color="{{couleurBtnExerciceAZ}}" (tap)="afficherExercicesAZ()">A - Z</button></div>
+          <div style="width:50%; float: right;"><button ion-button full color="{{couleurBtnExerciceMuscle}}" (tap)="afficherExercicesMuscle()">Muscles</button></div>
+        </div>
+
+        <div style="float: left; width: 100%;" *ngIf="exerciceTri">
+          <ion-list inset >
+            <button ion-item *ngFor="let exe of exercices" (tap)="afficherDetailsExercice(exe.id)">{{ exe.nom }} </button>
+          </ion-list>
+        </div>
+        
+        <div style="float: left; width: 100%;" *ngIf="exerciceTri  == false">
+          <ion-list inset>
+            <ion-item-group>
+              <div *ngFor="let data of dataExercicesMuscles" style="background: white;">
+                <ion-item-divider  color="light">{{data.muscle.nom}}</ion-item-divider>
+                <ion-item *ngFor="let exe of data.exercices" style="margin-left: 20px; padding-left: 10px;" (tap)="afficherDetailsExercice(exe.id)">{{exe.nom}}</ion-item>
+              </div>
+            </ion-item-group>
+          </ion-list>
+        </div>
+
+      </div>
+
+      <div *ngIf="exercicesState == false" style="float: left; width: 100%; padding:16px;">
+        <h2>Liste des muscles</h2>
+        <button ion-item *ngFor="let mus of muscles"  (tap)="afficherDetailsMuscle(mus.id)">{{ mus.nom }} </button>
+      </div>
+
+  </div>
+</ion-content>

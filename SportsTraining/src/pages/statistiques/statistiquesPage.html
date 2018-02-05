@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Statistiques</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+	<ion-list>
+
+		<ion-item>
+	      <ion-label>Variables</ion-label>
+	      <ion-select [(ngModel)]="graphSelection" interface="action-sheet">
+	        <ion-option value="1" (ionSelect)="afficherNbEntrainements()">Entrainements</ion-option>
+	        <ion-option value="3" (ionSelect)="afficherExercicesMuscu()">Exercices de Musculation</ion-option>
+	        <ion-option value="5" (ionSelect)="afficherExercicesCardio()">Exercices Cardio</ion-option>
+	        <ion-option value="2" (ionSelect)="afficherMensurations()">Mensurations</ion-option>
+	        <ion-option value="4" (ionSelect)="afficherMuscles()">Muscles</ion-option>
+	      </ion-select>
+	    </ion-item>
+
+	    <ion-item *ngIf="graphSelection == 2">
+	      <ion-label>Type de mesure</ion-label>
+	      <ion-select [(ngModel)]="mensurationIdSelection" interface="action-sheet">
+	        <ion-option *ngFor="let men of mensurations" [value]="men.id" (ionSelect)="afficherGraphMensuration(men.id)">{{men.nom}}</ion-option>
+	      </ion-select>
+	    </ion-item>
+
+	    <ion-item *ngIf="graphSelection == 3">
+	      <ion-label>Exercices</ion-label>
+	      <ion-select [(ngModel)]="exeMuscuIdSelection" interface="action-sheet" >
+	        <ion-option *ngFor="let exe of exercices" [value]="exe.id" click="test()" (ionSelect)="afficherGraphExerciceMuscu(exe.id)">{{exe.nom}}</ion-option>
+	      </ion-select>
+	    </ion-item>
+
+	    <ion-item *ngIf="graphSelection == 5">
+	      <ion-label>Exercices</ion-label>
+	      <ion-select [(ngModel)]="exeCardioIdSelection" interface="action-sheet">
+	        <ion-option *ngFor="let exe of exercices" [value]="exe.id" (ionSelect)="afficherGraphExerciceCardio(exe.id)">{{exe.nom}}</ion-option>
+	      </ion-select>
+	    </ion-item>
+
+    </ion-list>
+
+    <ion-card *ngIf="state == 1">
+      <ion-card-header>
+        Bar Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card *ngIf="state == 2">
+      <ion-card-header>
+        Doughnut Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card *ngIf="state == 3">
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>

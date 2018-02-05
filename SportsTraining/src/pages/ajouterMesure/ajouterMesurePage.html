@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ajouter une mesure</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<div class="ajoSer_conteneur">
+	
+		<ion-item>
+	    	<ion-label fixed color="primary" class="">Mesure *</ion-label>
+	    	<ion-input type="number" class="ajoEnt_input" [(ngModel)]="mesure" ></ion-input>
+	    </ion-item>
+
+	    <ion-item>
+			<ion-label fixed color="primary">Type *</ion-label>
+	    	<ion-select [(ngModel)]="mensuration">
+	    		<ion-option *ngFor="let men of mensurations" [value]="men.id">{{men.nom}} ({{men.unite}})</ion-option>
+	    	</ion-select>
+		</ion-item>
+		<div class="ajoSer_boutonAjouter">
+	    	<button ion-button (tap)="annuler()">Annuler</button>
+	    	<button ion-button (tap)="ajouterMesure()">Ajouter</button>
+	    	
+	    </div>
+	    <div class="ajoSer_boutonAjouter" *ngIf="msgError.length > 0">
+	    	<p style="color:red;">{{msgError}}</p>
+	    </div>
+
+	</div>
+
+</ion-content>

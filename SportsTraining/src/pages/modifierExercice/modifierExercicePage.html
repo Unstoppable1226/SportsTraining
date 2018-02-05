@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Modifier un exercice</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<div class="ajoSer_conteneur">
+		<ion-list>
+			<ion-item>
+			    <ion-label color="primary">Nom de l'exercice</ion-label>
+			    <ion-input placeholder="" class="ajoExe_input" [(ngModel)]="nom"></ion-input>
+			  </ion-item>
+			  <ion-item class="ajoExe_muscle">
+			    <ion-label color="primary">Description</ion-label><br>
+			    <ion-input placeholder="" class="ajoExe_input" [(ngModel)]="description"></ion-input>
+			</ion-item>
+
+		    <ion-item class="ajoExe_muscle" [hidden]="type == 0">
+			  <ion-label color="primary">Muscle</ion-label>
+		      <ion-select [(ngModel)]="muscle">
+
+		        <ion-option *ngFor="let mus of muscles" [value]="mus.id">{{mus.nom}}</ion-option>
+		      </ion-select>
+			</ion-item>
+		</ion-list>
+		<div class="ajoSer_boutonAjouter" >
+			<button ion-button (tap)="annuler()">Annuler</button>
+			<button ion-button (tap)="enregistrerExercice()">Enregistrer</button>
+		</div>
+		<div class="ajoSer_boutonAjouter" style="color:red;" *ngIf="msgError.length > 0">{{msgError}}</div>
+	</div>
+</ion-content>

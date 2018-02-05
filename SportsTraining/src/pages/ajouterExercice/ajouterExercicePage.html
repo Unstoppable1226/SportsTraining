@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Créer un exercice</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<div class="ajoSer_conteneur">
+
+		<ion-list>
+			<ion-item>
+			    <ion-label color="primary">Nom de l'exercice</ion-label>
+			    <ion-input placeholder="" class="ajoExe_input" [(ngModel)]="nom"></ion-input>
+			  </ion-item>
+			  <ion-item class="ajoExe_muscle">
+			    <ion-label color="primary">Description</ion-label><br>
+			    <ion-textarea placeholder="" class="ajoExe_input" [(ngModel)]="description"></ion-textarea>
+			</ion-item>
+
+		    <ion-item class="ajoExe_muscle" [hidden]="type == 0">
+			  <ion-label color="primary">Muscle</ion-label>
+		      <ion-select [(ngModel)]="muscle">
+
+		        <ion-option *ngFor="let mus of muscles" [value]="mus.id">{{mus.nom}}</ion-option>
+		      </ion-select>
+			</ion-item>
+		</ion-list>
+
+		<form (submit)="doSubmit($event)" [formGroup]="radioForm">
+	    	<ion-list radio-group formControlName="radioGroup" [(ngModel)]="type">
+				<ion-label color="primary" class="ajoExe_titreType">Type d'exercice</ion-label>
+				<ion-item>
+					<ion-label>Muscu</ion-label>
+				    <ion-radio value="1" checked="true"></ion-radio>
+			  	</ion-item>
+				<ion-item>
+					<ion-label>Cardio</ion-label>
+					<ion-radio value="0"></ion-radio>
+				</ion-item>
+			</ion-list>
+		</form>
+
+		<div class="ajoSer_boutonAjouter" (tap)="ajouterExercice()"><button ion-button>Créer l'exercice</button></div>
+		<div class="ajoSer_boutonAjouter" style="color:red;" (tap)="ajouterExercice()" *ngIf="msgError.length > 0">{{msgError}}</div>
+
+	</div>
+</ion-content>

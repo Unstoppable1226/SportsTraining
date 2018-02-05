@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Accueil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngFor="let info of infoMenu; let i=index" class="hom_conteneur">
+    <div (tap)="afficherPage(i)" class="home_div">
+      <div class="hom_image"> <ion-icon name="{{info.icon}}" color="red" item-start></ion-icon></div>
+      <div class="hom_titre">{{info.name}}</div>  
+    </div>
+  </div>
+
+</ion-content>
